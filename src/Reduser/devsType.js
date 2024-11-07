@@ -1,0 +1,4 @@
+export const DEVS_DATA_LOAD = "DEVS_DATA_LOAD";
+export const DEVS_DATA_CREATED = "DEVS_DATA_CREATED";
+export const DEVS_DATA_DELETE = "DEVS_DATA_DELETE";
+export let ISACTIVATE = "UNACTIVATE";
