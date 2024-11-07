@@ -1,3 +1,12 @@
 {
-  "devs": []
+  "devs": [
+    {
+      "id": "2f4a",
+      "name": "Farhan",
+      "location": "Shylhet",
+      "age": "18",
+      "skill": "js",
+      "photo": "https://thumbs.dreamstime.com/b/handsome-smiling-man-unshaven-face-well-groomed-mature-guy-isolated-white-businessman-wear-casual-business-clothes-male-205566154.jpg"
+    }
+  ]
 }

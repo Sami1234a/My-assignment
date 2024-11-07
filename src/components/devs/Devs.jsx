@@ -29,23 +29,25 @@ const Devs = ({ devs, dispatch }) => {
         dispatch({ type: DEVS_DATA_CREATED, payload: response.data });
         setInput({ name: '', location: '', age: '', skill: '', photo: '' });
 
-     
-          setActivation(true);
-         
+        // Activate the state when data is created
+        setActivation(true);
       } catch (error) {
         toast.error("Failed to create data!");
         console.error("Error:", error);
       }
     }
   };
-  useEffect(()=>{
-    setTimeout(()=>{
-      setActivation(false)
-    },5000)
-  },activation ==false)
-  setTimeout(()=>{
-    setActivation(false)
-  },10000)
+
+  // Reset activation after a timeout (5 seconds)
+  useEffect(() => {
+    if (activation) {
+      const timeout = setTimeout(() => {
+        setActivation(false);
+      }, 5000); // Reset after 5 seconds
+      return () => clearTimeout(timeout); // Cleanup timeout on component unmount or change
+    }
+  }, [activation]);
+
   // Handle input changes
   const handleChangeInput = (e) => {
     setInput((prevState) => ({
@@ -124,7 +126,7 @@ const Devs = ({ devs, dispatch }) => {
           {devs?.reverse().map((item) => (
             <li className='close' key={item.id}>
               <img src={item.photo} alt={`${item.name}'s photo`} />
-              <span className={activation ? "activate" :"unactivet"  }></span>
+              <span className={activation ? "activate" : "unactivet"}></span>
               {item.name}
               <button onClick={() => handleDelete(item.id)}>
                 <RiDeleteBinLine />
